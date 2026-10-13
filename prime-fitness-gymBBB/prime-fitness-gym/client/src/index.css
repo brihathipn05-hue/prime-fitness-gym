@@ -1,0 +1,417 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+/* ===================================================
+   GLOBAL THEME DEFINITIONS & CONTRAST ENGINE
+   =================================================== */
+
+/* 1. Default & Green Theme (Fresh Fitness) */
+:root,
+[data-theme="green"] {
+  --bg-dark: #0a0a0c;
+  --bg-card: #121318;
+  --bg-card-hover: #1a1c23;
+  --bg-sidebar: #0f1015;
+  --text-main: #ffffff;
+  --text-secondary: #e2e8f0;
+  --text-muted: #cbd5e1;
+  --primary-accent: #84cc16;
+  --primary-accent-hover: #65a30d;
+  --primary-accent-glow: rgba(132, 204, 22, 0.25);
+  --primary-accent-text: #050505;
+  --accent-green: #22c55e;
+  --accent-amber: #f59e0b;
+  --accent-red: #ef4444;
+  --border-color: #27272a;
+  --table-header-bg: #181a24;
+  --table-header-color: #84cc16;
+  --input-bg: #161821;
+  --input-text: #ffffff;
+  --input-placeholder: #94a3b8;
+  --navbar-bg: rgba(15, 16, 21, 0.95);
+  --modal-bg: #121318;
+}
+
+/* 2. Purple Theme (Modern Premium) */
+[data-theme="purple"] {
+  --bg-dark: #0f0c1b;
+  --bg-card: #19152b;
+  --bg-card-hover: #231d3d;
+  --bg-sidebar: #141026;
+  --text-main: #ffffff;
+  --text-secondary: #e9d5ff;
+  --text-muted: #d8b4fe;
+  --primary-accent: #a855f7;
+  --primary-accent-hover: #9333ea;
+  --primary-accent-glow: rgba(168, 85, 247, 0.3);
+  --primary-accent-text: #ffffff;
+  --accent-green: #10b981;
+  --accent-amber: #f59e0b;
+  --accent-red: #f43f5e;
+  --border-color: #2e254d;
+  --table-header-bg: #231c3b;
+  --table-header-color: #c084fc;
+  --input-bg: #211a36;
+  --input-text: #ffffff;
+  --input-placeholder: #a78bfa;
+  --navbar-bg: rgba(20, 16, 38, 0.95);
+  --modal-bg: #19152b;
+}
+
+/* 3. White / Light Theme (Clean Light) */
+[data-theme="white"] {
+  --bg-dark: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+  --bg-sidebar: #ffffff;
+  --text-main: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #475569;
+  --primary-accent: #16a34a;
+  --primary-accent-hover: #15803d;
+  --primary-accent-glow: rgba(22, 163, 74, 0.2);
+  --primary-accent-text: #ffffff;
+  --accent-green: #16a34a;
+  --accent-amber: #d97706;
+  --accent-red: #dc2626;
+  --border-color: #cbd5e1;
+  --table-header-bg: #e2e8f0;
+  --table-header-color: #15803d;
+  --input-bg: #ffffff;
+  --input-text: #0f172a;
+  --input-placeholder: #64748b;
+  --navbar-bg: rgba(255, 255, 255, 0.98);
+  --modal-bg: #ffffff;
+}
+
+/* 4. Blue Theme (Professional Fitness) */
+[data-theme="blue"] {
+  --bg-dark: #0b1329;
+  --bg-card: #121e3d;
+  --bg-card-hover: #1a2b56;
+  --bg-sidebar: #0e1935;
+  --text-main: #ffffff;
+  --text-secondary: #bfdbfe;
+  --text-muted: #93c5fd;
+  --primary-accent: #3b82f6;
+  --primary-accent-hover: #2563eb;
+  --primary-accent-glow: rgba(59, 130, 246, 0.3);
+  --primary-accent-text: #ffffff;
+  --accent-green: #10b981;
+  --accent-amber: #f59e0b;
+  --accent-red: #ef4444;
+  --border-color: #1e3a8a;
+  --table-header-bg: #192a54;
+  --table-header-color: #60a5fa;
+  --input-bg: #152449;
+  --input-text: #ffffff;
+  --input-placeholder: #93c5fd;
+  --navbar-bg: rgba(14, 25, 53, 0.95);
+  --modal-bg: #121e3d;
+}
+
+/* ===================================================
+   BASE TYPOGRAPHY & HIGH CONTRAST OVERRIDES
+   =================================================== */
+
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  transition: background-color 0.25s ease, color 0.25s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+/* High Contrast Class Overrides */
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+.text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+p, .lead {
+  color: var(--text-secondary);
+}
+
+small, .small {
+  color: var(--text-muted);
+}
+
+.form-label, label {
+  color: var(--text-muted) !important;
+}
+
+/* Light Theme Contrast Helper Overrides */
+[data-theme="white"] .text-white {
+  color: var(--text-main) !important;
+}
+
+[data-theme="white"] .border-secondary {
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="white"] .btn-close-white {
+  filter: invert(1) grayscale(100%) !important;
+}
+
+[data-theme="white"] .bg-dark {
+  background-color: #e2e8f0 !important;
+}
+
+[data-theme="white"] .dropdown-menu {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+[data-theme="white"] .dropdown-item {
+  color: #0f172a !important;
+}
+
+[data-theme="white"] .dropdown-item:hover {
+  background-color: #f1f5f9 !important;
+  color: var(--primary-accent) !important;
+}
+
+[data-theme="white"] .progress {
+  background-color: #e2e8f0 !important;
+}
+
+[data-theme="white"] .badge-lime {
+  background-color: rgba(37, 99, 235, 0.1);
+  color: var(--primary-accent);
+  border-color: var(--primary-accent);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-accent);
+}
+
+/* Dynamic Helper Utility Classes */
+.text-lime {
+  color: var(--primary-accent) !important;
+}
+
+.bg-lime {
+  background-color: var(--primary-accent) !important;
+  color: var(--primary-accent-text) !important;
+}
+
+.bg-dark-custom {
+  background-color: var(--bg-dark) !important;
+  color: var(--text-main) !important;
+}
+
+.bg-card-custom {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-main) !important;
+}
+
+/* Buttons */
+.btn-lime {
+  background-color: var(--primary-accent);
+  color: var(--primary-accent-text);
+  font-weight: 700;
+  border: none;
+  padding: 0.625rem 1.5rem;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 14px var(--primary-accent-glow);
+}
+
+.btn-lime:hover, .btn-lime:focus {
+  background-color: var(--primary-accent-hover);
+  color: var(--primary-accent-text);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--primary-accent-glow);
+}
+
+.btn-outline-lime {
+  border: 2px solid var(--primary-accent);
+  color: var(--primary-accent);
+  font-weight: 600;
+  background: transparent;
+  padding: 0.55rem 1.4rem;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-outline-lime:hover {
+  background-color: var(--primary-accent);
+  color: var(--primary-accent-text);
+  transform: translateY(-2px);
+}
+
+.btn-dark-card {
+  background-color: var(--bg-card-hover);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  font-weight: 600;
+}
+.btn-dark-card:hover {
+  background-color: var(--border-color);
+  color: var(--text-main);
+}
+
+/* Card Styling */
+.gym-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  transition: all 0.25s ease;
+  color: var(--text-main);
+}
+
+.gym-card:hover {
+  border-color: var(--primary-accent);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Glass & Hero Effects */
+.hero-wrapper {
+  position: relative;
+  min-height: 90vh;
+  background: linear-gradient(180deg, rgba(10, 10, 12, 0.8) 0%, rgba(10, 10, 12, 0.95) 100%),
+              url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+.hero-wrapper p {
+  color: #e2e8f0 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.navbar-custom {
+  background-color: var(--navbar-bg) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Form controls */
+.form-control-dark, .form-select-dark {
+  background-color: var(--input-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--input-text) !important;
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+}
+
+.form-control-dark:focus, .form-select-dark:focus {
+  border-color: var(--primary-accent) !important;
+  box-shadow: 0 0 0 3px var(--primary-accent-glow) !important;
+}
+
+.form-control-dark::placeholder {
+  color: var(--input-placeholder) !important;
+  opacity: 0.85;
+}
+
+/* Table styling */
+.table-dark-custom {
+  --bs-table-bg: var(--bg-card);
+  --bs-table-border-color: var(--border-color);
+  --bs-table-color: var(--text-main);
+  color: var(--text-main);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table-dark-custom th {
+  background-color: var(--table-header-bg);
+  color: var(--table-header-color);
+  font-family: 'Outfit', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  padding: 1rem;
+}
+
+.table-dark-custom td {
+  padding: 1rem;
+  vertical-align: middle;
+  color: var(--text-main);
+}
+
+/* Sidebar navigation */
+aside {
+  background-color: var(--bg-sidebar) !important;
+  border-color: var(--border-color) !important;
+}
+
+.sidenav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  margin-bottom: 0.25rem;
+}
+
+.sidenav-link:hover {
+  color: var(--text-main);
+  background-color: var(--bg-card-hover);
+}
+
+.sidenav-link.active {
+  color: var(--primary-accent-text);
+  background-color: var(--primary-accent);
+  font-weight: 700;
+}
+
+/* Badge helpers */
+.badge-lime {
+  background-color: var(--primary-accent-glow);
+  color: var(--primary-accent);
+  border: 1px solid var(--primary-accent);
+}
+
+.badge-active {
+  background-color: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.badge-inactive {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.badge-expired {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* Modal styling in light/dark themes */
+.modal-content {
+  background-color: var(--modal-bg) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-main) !important;
+}
